@@ -1,11 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import {
   ArrowRightIcon,
-  CameraIcon,
   CheckCircle2Icon,
   Clock3Icon,
   MailIcon,
-  MessageCircleIcon,
 } from "lucide-react"
 import { useEffect, useState } from "react"
 import { Controller, useForm } from "react-hook-form"
@@ -33,6 +31,16 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
+
+function InstagramGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <path d="M17.5 6.5h.01" />
+    </svg>
+  )
+}
 import {
   buildDirectMessage,
   buildLeadMessage,
@@ -131,7 +139,7 @@ export function LeadForm({ selectedOffer }: LeadFormProps) {
             onClick={openDirectContact}
             size="lg"
           >
-            <MessageCircleIcon data-icon="inline-start" />
+            <img className="whatsapp-icon" src="/icons/whatsapp.svg" alt="" aria-hidden="true" data-icon="inline-start" />
             Falar agora no WhatsApp
             <ArrowRightIcon data-icon="inline-end" />
           </Button>
@@ -267,7 +275,7 @@ export function LeadForm({ selectedOffer }: LeadFormProps) {
             size="lg"
             type="submit"
           >
-            <MessageCircleIcon data-icon="inline-start" />
+            <img className="whatsapp-icon" src="/icons/whatsapp.svg" alt="" aria-hidden="true" data-icon="inline-start" />
             {isSubmitting ? "Preparando briefing..." : "Enviar briefing pelo WhatsApp"}
           </Button>
 
@@ -296,28 +304,30 @@ export function SiteFooter() {
           <p>Performance. Branding. Crescimento.</p>
         </div>
 
-        <nav aria-label="Links do rodapé">
-          <a href="#planos">Planos</a>
-          <a href="#projetos">Projetos</a>
-          <a href="#diferenciais">Diferenciais</a>
-        </nav>
+        <div className="footer-links-rail">
+          <nav aria-label="Links do rodapé">
+            <a href="#planos"><span>Planos</span><ArrowRightIcon /></a>
+            <a href="#projetos"><span>Projetos</span><ArrowRightIcon /></a>
+            <a href="#diferenciais"><span>Diferenciais</span><ArrowRightIcon /></a>
+          </nav>
 
-        <div className="footer-contact">
-          <a href={instagramUrl || "#contato"} aria-label="Instagram">
-            <CameraIcon />
-            Instagram
-          </a>
-          <a
-            href={whatsappNumber ? `https://wa.me/${whatsappNumber}` : "#contato"}
-            aria-label="WhatsApp"
-          >
-            <MessageCircleIcon />
-            WhatsApp
-          </a>
-          <a href={email ? `mailto:${email}` : "#contato"} aria-label="E-mail">
-            <MailIcon />
-            E-mail
-          </a>
+          <div className="footer-contact">
+            <a href={instagramUrl || "#contato"} aria-label="Instagram">
+              <InstagramGlyph />
+              <span>Instagram</span>
+            </a>
+            <a
+              href={whatsappNumber ? `https://wa.me/${whatsappNumber}` : "#contato"}
+              aria-label="WhatsApp"
+            >
+              <img className="whatsapp-icon" src="/icons/whatsapp.svg" alt="" aria-hidden="true" />
+              <span>WhatsApp</span>
+            </a>
+            <a href={email ? `mailto:${email}` : "#contato"} aria-label="E-mail">
+              <MailIcon />
+              <span>E-mail</span>
+            </a>
+          </div>
         </div>
       </div>
       <div className="page-shell footer-legal">
