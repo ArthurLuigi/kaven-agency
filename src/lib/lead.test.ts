@@ -5,6 +5,7 @@ import {
   createWhatsAppUrl,
   leadFormSchema,
   sendWhatsAppMessage,
+  solutionForOffer,
 } from "@/lib/lead"
 
 const validLead = {
@@ -41,6 +42,13 @@ describe("leadFormSchema", () => {
 })
 
 describe("mensagem de WhatsApp", () => {
+  it("mapeia os novos nomes comerciais para a solução correta", () => {
+    expect(solutionForOffer("KAVEN SCALE")).toBe("recurring")
+    expect(solutionForOffer("KAVEN BRAND")).toBe("branding")
+    expect(solutionForOffer("KAVEN BUSINESS")).toBe("website")
+    expect(solutionForOffer("KAVEN WEB")).toBe("landing-page")
+  })
+
   it("inclui dados e oferta selecionada", () => {
     const message = buildLeadMessage(validLead, "KAVEN GROWTH")
 

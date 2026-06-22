@@ -306,8 +306,8 @@ export function SiteFooter() {
 
         <div className="footer-links-rail">
           <nav aria-label="Links do rodapé">
-            <a href="#planos"><span>Planos</span><ArrowRightIcon /></a>
             <a href="#projetos"><span>Projetos</span><ArrowRightIcon /></a>
+            <a href="#planos"><span>Planos</span><ArrowRightIcon /></a>
             <a href="#diferenciais"><span>Diferenciais</span><ArrowRightIcon /></a>
           </nav>
 

@@ -14,8 +14,8 @@ import {
 
 const navItems = [
   { label: "Soluções", href: "#metodo" },
-  { label: "Planos", href: "#planos" },
   { label: "Projetos", href: "#projetos" },
+  { label: "Planos", href: "#planos" },
   { label: "Diferenciais", href: "#diferenciais" },
 ]
 

@@ -7,11 +7,94 @@ export type Offer = {
   cadence?: string
   description: string
   features: string[]
+  idealFor: string
+  deliveryTime?: string
   cta: string
   category: OfferCategory
   featured?: boolean
   previewImage?: string
 }
+
+export type LaunchOffer = {
+  offerId: Offer["id"]
+  title: string
+  originalPrice: string
+  launchPrice: string
+}
+
+export const implementationProjects: Offer[] = [
+  {
+    id: "web",
+    title: "KAVEN WEB",
+    price: "R$ 997",
+    description: "Estrutura digital para geração de oportunidades.",
+    features: [
+      "Landing Page profissional",
+      "Copy estratégica",
+      "Design responsivo",
+      "Integração com WhatsApp",
+      "Formulário de captação",
+      "Configuração de domínio",
+      "SEO inicial",
+      "Configuração de métricas",
+      "Página otimizada para conversão",
+    ],
+    idealFor:
+      "Empresas que precisam de presença profissional e desejam começar a captar clientes pela internet.",
+    deliveryTime: "Até 7 dias úteis",
+    cta: "Criar minha estrutura web",
+    category: "project",
+    previewImage: "/project-launch-preview.svg",
+  },
+  {
+    id: "brand",
+    title: "KAVEN BRAND",
+    price: "R$ 1.997",
+    description: "Marca forte. Presença profissional.",
+    features: [
+      "Tudo do KAVEN WEB",
+      "Logotipo profissional",
+      "Identidade visual completa",
+      "Paleta de cores estratégica",
+      "Tipografia da marca",
+      "Manual de identidade visual",
+      "Kit para redes sociais",
+      "Arquivos editáveis",
+      "Direcionamento de posicionamento",
+    ],
+    idealFor:
+      "Empresas que desejam transmitir autoridade e profissionalismo em todos os pontos de contato.",
+    deliveryTime: "Até 15 dias úteis",
+    cta: "Fortalecer minha marca",
+    category: "project",
+    previewImage: "/project-brand-preview.svg",
+  },
+  {
+    id: "business",
+    title: "KAVEN BUSINESS",
+    price: "R$ 3.997",
+    description: "Estrutura completa para empresas que querem crescer.",
+    features: [
+      "Tudo do KAVEN BRAND",
+      "Website institucional completo",
+      "Até 5 páginas",
+      "Estrutura comercial digital",
+      "Integração com ferramentas de captura",
+      "Configuração avançada de métricas",
+      "SEO estratégico inicial",
+      "Configuração profissional de e-mail corporativo",
+      "Treinamento básico da plataforma",
+      "30 dias de suporte pós-entrega",
+    ],
+    idealFor:
+      "Empresas que buscam presença digital sólida e preparada para expansão.",
+    deliveryTime: "Até 20 dias úteis",
+    cta: "Estruturar meu negócio",
+    category: "project",
+    featured: true,
+    previewImage: "/project-empire-preview.svg",
+  },
+]
 
 export const growthPlans: Offer[] = [
   {
@@ -19,14 +102,18 @@ export const growthPlans: Offer[] = [
     title: "KAVEN START",
     price: "R$ 997",
     cadence: "/mês",
-    description: "Ideal para empresas iniciando no digital.",
+    description: "Gestão profissional para começar a anunciar.",
     features: [
-      "Gestão de Meta Ads",
-      "1 campanha ativa",
-      "8 artes mensais",
-      "Ajustes semanais",
+      "Gestão Meta Ads",
+      "Até 2 campanhas simultâneas",
+      "Planejamento mensal",
+      "Criação de até 8 criativos",
+      "Otimizações semanais",
+      "Relatório mensal",
       "Suporte via WhatsApp",
     ],
+    idealFor:
+      "Empresas que desejam iniciar campanhas com acompanhamento profissional.",
     cta: "Começar com Start",
     category: "recurring",
   },
@@ -35,86 +122,66 @@ export const growthPlans: Offer[] = [
     title: "KAVEN GROWTH",
     price: "R$ 1.997",
     cadence: "/mês",
-    description: "Para empresas que querem escalar resultados.",
+    description: "Crescimento consistente e previsível.",
     features: [
-      "Meta Ads + Google Ads",
-      "Até 4 campanhas",
-      "Funil + remarketing",
-      "12 artes + 4 vídeos",
-      "Reunião estratégica",
+      "Gestão Meta Ads",
+      "Gestão Google Ads",
+      "Estratégia de funil",
+      "Remarketing",
+      "Até 12 criativos mensais",
+      "Relatórios avançados",
+      "Reunião estratégica mensal",
+      "Monitoramento contínuo",
+      "Suporte prioritário",
     ],
+    idealFor: "Empresas que buscam crescimento consistente e previsível.",
     cta: "Escolher Growth",
     category: "recurring",
     featured: true,
   },
   {
-    id: "dominance",
-    title: "KAVEN DOMINANCE",
+    id: "scale",
+    title: "KAVEN SCALE",
     price: "R$ 3.997",
     cadence: "/mês",
-    description: "Para empresas que desejam liderar o mercado.",
+    description: "Performance avançada para acelerar a expansão.",
     features: [
+      "Gestão completa Meta Ads",
+      "Gestão completa Google Ads",
       "Estratégias avançadas de escala",
-      "Funis personalizados",
-      "Dashboard em tempo real",
-      "20 artes + 8 vídeos",
-      "Consultoria e suporte VIP",
+      "Estruturação de funis personalizados",
+      "Dashboard de resultados",
+      "Reuniões quinzenais",
+      "Produção criativa avançada",
+      "Consultoria estratégica",
+      "Planejamento de expansão",
     ],
-    cta: "Falar sobre Dominance",
+    idealFor:
+      "Empresas que desejam acelerar o crescimento e aumentar a participação de mercado.",
+    cta: "Escalar minha operação",
     category: "recurring",
   },
 ]
 
-export const implementationProjects: Offer[] = [
+export const launchOffers: LaunchOffer[] = [
   {
-    id: "launch",
-    title: "KAVEN LAUNCH",
-    price: "R$ 1.997",
-    description: "Sua empresa pronta para vender.",
-    features: [
-      "Landing Page profissional",
-      "Copy estratégica",
-      "Design responsivo",
-      "Integração com WhatsApp",
-      "Entrega em até 10 dias",
-    ],
-    cta: "Lançar meu projeto",
-    category: "project",
-    previewImage: "/project-launch-preview.svg",
+    offerId: "web",
+    title: "KAVEN WEB",
+    originalPrice: "R$ 997",
+    launchPrice: "R$ 697",
   },
   {
-    id: "brand-pro",
-    title: "KAVEN BRAND PRO",
-    price: "R$ 3.997",
-    description: "Construindo marcas fortes.",
-    features: [
-      "Tudo do Kaven Launch",
-      "Logotipo profissional",
-      "Identidade visual completa",
-      "Manual básico da marca",
-      "Domínio configurado",
-    ],
-    cta: "Construir minha marca",
-    category: "project",
-    previewImage: "/project-brand-preview.svg",
+    offerId: "brand",
+    title: "KAVEN BRAND",
+    originalPrice: "R$ 1.997",
+    launchPrice: "R$ 1.497",
   },
   {
-    id: "empire",
-    title: "KAVEN EMPIRE",
-    price: "R$ 7.997",
-    description: "Estrutura completa para crescer sem limites.",
-    features: [
-      "Website premium ou Landing Page avançada",
-      "Identidade visual completa",
-      "Naming e pesquisa de viabilidade",
-      "SEO + métricas + integrações",
-      "30 dias de suporte",
-    ],
-    cta: "Criar minha estrutura",
-    category: "project",
-    featured: true,
-    previewImage: "/project-empire-preview.svg",
+    offerId: "business",
+    title: "KAVEN BUSINESS",
+    originalPrice: "R$ 3.997",
+    launchPrice: "R$ 2.997",
   },
 ]
 
-export const allOffers = [...growthPlans, ...implementationProjects]
+export const allOffers = [...implementationProjects, ...growthPlans]

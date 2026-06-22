@@ -11,10 +11,11 @@ export function HeroSection() {
 
       <div className="page-shell hero-grid">
         <div className="hero-copy reveal">
-          <h1>Estruturas digitais para vender mais. Crescer com previsibilidade.</h1>
+          <span className="hero-eyebrow">Kaven Agency</span>
+          <h1>Performance. Branding. Crescimento.</h1>
           <p>
-            Performance, branding e tecnologia em uma operação full-service — da
-            estratégia ao lançamento.
+            Construímos estruturas digitais para empresas que desejam crescer com
+            posicionamento, autoridade e geração de oportunidades.
           </p>
           <div className="hero-actions">
             <Button asChild size="lg" className="accent-button">
@@ -24,13 +25,13 @@ export function HeroSection() {
               </a>
             </Button>
             <Button asChild size="lg" variant="outline" className="outline-button">
-              <a href="#planos">
-                Ver planos
+              <a href="#projetos">
+                Ver projetos
                 <ArrowRightIcon data-icon="inline-end" />
               </a>
             </Button>
           </div>
-          <span className="hero-proof">Design + Desenvolvimento + Estratégia</span>
+          <span className="hero-proof">Posicionamento + Autoridade + Oportunidades</span>
         </div>
 
       </div>

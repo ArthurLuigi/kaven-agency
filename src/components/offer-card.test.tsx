@@ -16,4 +16,20 @@ describe("OfferCard", () => {
 
     expect(onSelect).toHaveBeenCalledWith(offer)
   })
+
+  it("mantém o escopo adicional acessível em detalhes expansíveis", async () => {
+    const user = userEvent.setup()
+    const offer = growthPlans[1]
+
+    render(<OfferCard offer={offer} onSelect={vi.fn()} />)
+
+    const details = screen.getByText("Ver tudo que está incluso").closest("details")
+    expect(details).not.toHaveAttribute("open")
+
+    await user.click(screen.getByText("Ver tudo que está incluso"))
+
+    expect(details).toHaveAttribute("open")
+    expect(screen.getByText("Suporte prioritário")).toBeInTheDocument()
+    expect(screen.getByText(offer.idealFor)).toBeInTheDocument()
+  })
 })
