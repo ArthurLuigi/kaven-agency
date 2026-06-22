@@ -1,45 +1,37 @@
-import {
-  BarChart3Icon,
-  BoltIcon,
-  CrosshairIcon,
-  PenToolIcon,
-  RocketIcon,
-  TargetIcon,
-  UserRoundIcon,
-} from "lucide-react"
+import { ArrowRightIcon } from "lucide-react"
 
 const steps = [
   {
     number: "01",
     title: "Estratégia",
     description: "diagnóstico, posicionamento e plano de crescimento",
-    icon: TargetIcon,
+    icon: "/icons/mira.svg",
   },
   {
     number: "02",
     title: "Criação",
     description: "branding, conteúdo e interfaces",
-    icon: PenToolIcon,
+    icon: "/icons/lapinhos.svg",
   },
   {
     number: "03",
     title: "Performance",
     description: "mídia, funis e otimização",
-    icon: BarChart3Icon,
+    icon: "/icons/crescimento.svg",
   },
   {
     number: "04",
     title: "Evolução",
     description: "dados, suporte e escala",
-    icon: RocketIcon,
+    icon: "/icons/foguetinho.svg",
   },
 ]
 
 const differentiators = [
-  { label: "Foco em conversão", icon: CrosshairIcon },
-  { label: "Entrega rápida", icon: BoltIcon },
-  { label: "Atendimento humanizado", icon: UserRoundIcon },
-  { label: "Transparência nos resultados", icon: BarChart3Icon },
+  { label: "Foco em conversão", icon: "/icons/mira-laranja.svg" },
+  { label: "Entrega rápida", icon: "/icons/raio-laranja.svg" },
+  { label: "Atendimento humanizado", icon: "/icons/pessoa-laranja.svg" },
+  { label: "Transparência nos resultados", icon: "/icons/crescimento-laranja.svg" },
 ]
 
 export function MethodSection() {
@@ -55,17 +47,17 @@ export function MethodSection() {
               investimento em ativos digitais e oportunidades reais.
             </p>
             <a className="text-link" href="#contato">
-              Conhecer nosso método
+              <span>Conhecer nosso método</span>
+              <ArrowRightIcon aria-hidden="true" />
             </a>
           </div>
 
           <ol className="process-list reveal">
             {steps.map((step) => {
-              const Icon = step.icon
               return (
                 <li key={step.number}>
                   <span className="process-icon">
-                    <Icon />
+                    <img src={step.icon} alt="" aria-hidden="true" />
                   </span>
                   <strong>{step.number}</strong>
                   <div>
@@ -80,10 +72,11 @@ export function MethodSection() {
 
         <div className="differentiator-rail" id="diferenciais">
           {differentiators.map((item) => {
-            const Icon = item.icon
             return (
               <div key={item.label}>
-                <Icon />
+                <span className="differentiator-icon" aria-hidden="true">
+                  <img src={item.icon} alt="" />
+                </span>
                 <span>{item.label}</span>
               </div>
             )
