@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { ArrowRightIcon, InfoIcon, ShieldCheckIcon, SparklesIcon } from "lucide-react"
+import { ArrowRightIcon, InfoIcon, ShieldCheckIcon, TagIcon } from "lucide-react"
 
 import { HeroSection } from "@/components/hero-section"
 import { LeadForm, SiteFooter } from "@/components/lead-form"
@@ -77,44 +77,65 @@ function App() {
               ))}
             </div>
 
-            <aside className="launch-offer reveal" aria-labelledby="launch-offer-title">
-              <div className="launch-offer-heading">
-                <span className="launch-offer-icon" aria-hidden="true">
-                  <SparklesIcon />
-                </span>
-                <div>
-                  <span>Condição especial de lançamento</span>
-                  <h3 id="launch-offer-title">Uma oportunidade para os primeiros clientes.</h3>
+            <div className="launch-offer-stage reveal">
+              <aside className="launch-offer" aria-labelledby="launch-offer-title">
+                <div className="launch-offer-heading">
+                  <span className="launch-offer-icon" aria-hidden="true">
+                    <TagIcon />
+                  </span>
+                  <div>
+                    <span>Condição especial de lançamento</span>
+                    <h3 id="launch-offer-title">
+                      Uma oportunidade para<br /> os primeiros clientes<span>.</span>
+                    </h3>
+                  </div>
+                  <strong><i aria-hidden="true" />Vagas limitadas</strong>
                 </div>
-                <strong>Vagas limitadas</strong>
-              </div>
-              <div className="launch-offer-grid">
-                {launchOffers.map((launchOffer) => (
-                  <button
-                    type="button"
-                    key={launchOffer.offerId}
-                    onClick={() => {
-                      const offer = implementationProjects.find(
-                        (item) => item.id === launchOffer.offerId,
-                      )
-                      if (offer) selectOffer(offer)
-                    }}
-                  >
-                    <span>{launchOffer.title}</span>
-                    <span className="launch-price">
-                      <del>{launchOffer.originalPrice}</del>
-                      <strong>{launchOffer.launchPrice}</strong>
-                    </span>
-                    <ArrowRightIcon aria-hidden="true" />
-                  </button>
-                ))}
-              </div>
-            </aside>
+                <div className="launch-offer-grid">
+                  {launchOffers.map((launchOffer) => (
+                    <button
+                      type="button"
+                      className={launchOffer.offerId === "brand" ? "launch-offer-featured" : undefined}
+                      key={launchOffer.offerId}
+                      onClick={() => {
+                        const offer = implementationProjects.find(
+                          (item) => item.id === launchOffer.offerId,
+                        )
+                        if (offer) selectOffer(offer)
+                      }}
+                    >
+                      {launchOffer.offerId === "brand" && (
+                        <span className="launch-featured-label">
+                          <i aria-hidden="true" />Mais escolhido
+                        </span>
+                      )}
+                      <span className="launch-card-brand">
+                        <span className="launch-card-logo" aria-hidden="true">
+                          <img src="/logo-kaven-mark.png" alt="" />
+                        </span>
+                        <span className="launch-card-title">
+                          <strong>{launchOffer.title}</strong>
+                          <i aria-hidden="true" />
+                        </span>
+                      </span>
+                      <span className="launch-price">
+                        <del>{launchOffer.originalPrice}</del>
+                        <strong>
+                          <small>R$</small>
+                          {launchOffer.launchPrice.replace("R$ ", "")}
+                        </strong>
+                      </span>
+                      <ArrowRightIcon aria-hidden="true" />
+                    </button>
+                  ))}
+                </div>
+              </aside>
+              <p className="project-note">
+                <InfoIcon />
+                Escopo final definido após diagnóstico estratégico.
+              </p>
+            </div>
           </div>
-          <p className="project-note">
-            <InfoIcon />
-            Escopo final definido após diagnóstico estratégico.
-          </p>
         </section>
 
         <section className="pricing-section section-pad" id="planos">

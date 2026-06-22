@@ -976,143 +976,259 @@
     drop-shadow(0 0 18px rgba(255, 94, 3, 0.18));
 }
 
-.launch-offer {
+.launch-offer-stage {
+  position: relative;
   grid-column: 1 / -1;
+  width: 100%;
+  aspect-ratio: 1916 / 821;
   margin-top: 64px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 94, 3, 0.34);
-  border-radius: 18px;
-  background:
-    radial-gradient(circle at 0 0, rgba(255, 94, 3, 0.16), transparent 34%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.035), transparent 56%),
-    rgba(9, 9, 9, 0.92);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.3);
+  background: url("/launch-offer-background.png") center / 100% 100% no-repeat;
+}
+
+.launch-offer {
+  position: absolute;
+  inset: 7.45% 3.3% 16.3%;
 }
 
 .launch-offer-heading {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 18px;
-  padding: 24px 28px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  grid-template-columns: clamp(64px, 6vw, 84px) 1fr auto;
+  align-items: start;
+  gap: clamp(26px, 2.7vw, 42px);
+  height: 46.5%;
+  padding: clamp(48px, 4.15vw, 64px) clamp(52px, 4.7vw, 72px);
 }
 
 .launch-offer-icon {
   display: inline-grid;
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgba(255, 94, 3, 0.45);
-  border-radius: 12px;
+  width: clamp(64px, 6vw, 84px);
+  height: clamp(64px, 6vw, 84px);
+  border: 1px solid rgba(255, 94, 3, 0.82);
+  border-radius: 16px;
   color: var(--orange);
-  background: rgba(255, 94, 3, 0.08);
+  background: rgba(7, 7, 7, 0.68);
+  box-shadow:
+    inset 0 0 22px rgba(255, 94, 3, 0.06),
+    0 0 24px rgba(255, 94, 3, 0.08);
   place-items: center;
 }
 
 .launch-offer-icon svg {
-  width: 20px;
-  height: 20px;
+  width: 40%;
+  height: 40%;
+  stroke-width: 1.65;
 }
 
 .launch-offer-heading div > span {
+  display: block;
   color: var(--orange);
-  font-size: 11px;
-  font-weight: 750;
+  font-family: "Sora Variable", sans-serif;
+  font-size: clamp(10px, 1vw, 15px);
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .launch-offer-heading h3 {
-  margin-top: 4px;
+  margin-top: clamp(14px, 1.55vw, 24px);
+  color: #f7f7f5;
   font-family: "Sora Variable", sans-serif;
-  font-size: clamp(1rem, 1.5vw, 1.35rem);
-  font-weight: 600;
+  font-size: clamp(2rem, 3.1vw, 3.2rem);
+  font-weight: 650;
+  line-height: 1.16;
+  letter-spacing: -0.045em;
+}
+
+.launch-offer-heading h3 > span {
+  color: var(--orange);
 }
 
 .launch-offer-heading > strong {
-  padding: 7px 10px;
-  border: 1px solid rgba(255, 94, 3, 0.36);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 0;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 94, 3, 0.85);
   border-radius: 999px;
-  color: #ffb17e;
-  background: rgba(255, 94, 3, 0.08);
-  font-size: 11px;
+  color: var(--orange);
+  background: rgba(5, 5, 5, 0.66);
+  font-family: "Sora Variable", sans-serif;
+  font-size: clamp(9px, 0.85vw, 13px);
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
+.launch-offer-heading > strong i,
+.launch-featured-label i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 12px rgba(255, 94, 3, 0.72);
+}
+
 .launch-offer-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5%;
+  height: 53.5%;
+  padding: 3.2% 2.5% 3.9%;
 }
 
 .launch-offer-grid button {
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  position: relative;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto 1fr;
   align-items: center;
-  gap: 16px;
+  gap: 10px 18px;
   min-width: 0;
-  min-height: 86px;
-  padding: 18px 26px;
+  padding: clamp(24px, 2.5vw, 38px);
   border: 0;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
   color: #f6f5f2;
   background: transparent;
   text-align: left;
   transition:
     transform 140ms var(--ease-out),
-    background-color 180ms ease;
+    background-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
-.launch-offer-grid button:last-child {
-  border-right: 0;
+.launch-card-brand {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  gap: clamp(16px, 1.6vw, 25px);
+  align-self: start;
 }
 
-.launch-offer-grid button > span:first-child {
+.launch-card-logo {
+  display: grid;
+  flex: 0 0 clamp(46px, 4.2vw, 64px);
+  width: clamp(46px, 4.2vw, 64px);
+  height: clamp(46px, 4.2vw, 64px);
+  border: 1px solid rgba(255, 94, 3, 0.2);
+  border-radius: 11px;
+  background: rgba(9, 9, 9, 0.72);
+  place-items: center;
+}
+
+.launch-card-logo img {
+  width: 76%;
+  height: 76%;
+  object-fit: contain;
+  mix-blend-mode: screen;
+}
+
+.launch-card-title {
+  display: block;
+  min-width: 0;
+  padding-left: clamp(12px, 1.2vw, 18px);
+  border-left: 1px solid rgba(255, 94, 3, 0.55);
+}
+
+.launch-card-title strong {
+  display: block;
+  overflow: hidden;
   font-family: "Sora Variable", sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.07em;
+  font-size: clamp(12px, 1.22vw, 18px);
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.launch-card-title i {
+  display: block;
+  width: clamp(42px, 4vw, 60px);
+  height: 1px;
+  margin-top: clamp(12px, 1.3vw, 20px);
+  background: rgba(255, 94, 3, 0.62);
 }
 
 .launch-price {
   display: flex;
   align-items: baseline;
-  gap: 8px;
+  gap: clamp(20px, 2.2vw, 34px);
+  align-self: end;
   white-space: nowrap;
 }
 
 .launch-price del {
-  color: #777773;
-  font-size: 11px;
+  color: #555552;
+  font-size: clamp(12px, 1.4vw, 21px);
+  font-weight: 500;
 }
 
 .launch-price strong {
+  display: inline-flex;
+  align-items: baseline;
+  gap: clamp(8px, 0.8vw, 12px);
   color: var(--orange);
   font-family: "Sora Variable", sans-serif;
-  font-size: 18px;
+  font-size: clamp(2rem, 3.05vw, 3rem);
+  font-weight: 690;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.launch-price strong small {
+  color: #f7f7f5;
+  font-size: 0.56em;
+  font-weight: 650;
+  letter-spacing: -0.02em;
 }
 
 .launch-offer-grid button > svg {
-  width: 18px;
-  height: 18px;
+  align-self: end;
+  width: clamp(24px, 2.3vw, 35px);
+  height: clamp(24px, 2.3vw, 35px);
   color: var(--orange);
+  stroke-width: 1.5;
   transition: transform 180ms var(--ease-out);
+}
+
+.launch-featured-label {
+  display: inline-flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 24px;
+  border-bottom: 1px solid rgba(255, 94, 3, 0.7);
+  border-left: 1px solid rgba(255, 94, 3, 0.7);
+  border-radius: 0 15px 0 17px;
+  color: var(--orange);
+  background: rgba(9, 9, 9, 0.72);
+  font-family: "Sora Variable", sans-serif;
+  font-size: clamp(9px, 0.84vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.project-note {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 7.2%;
+  left: 0;
+  margin: 0;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .launch-offer-grid button:hover {
-    background: rgba(255, 94, 3, 0.06);
+    background: rgba(255, 94, 3, 0.035);
+    box-shadow: inset 0 0 42px rgba(255, 94, 3, 0.04);
   }
 
   .launch-offer-grid button:hover > svg {
-    transform: translateX(3px);
+    transform: translateX(4px);
   }
-}
-
-.project-note {
-  position: relative;
-  z-index: 2;
-  margin-top: 54px;
 }
 
 .method-section {
@@ -1135,14 +1251,15 @@
 
 .method-background {
   position: absolute;
-  top: -20%;
-  left: 4%;
-  width: 45%;
-  height: 110%;
-  opacity: 0.6;
-  background:
-    linear-gradient(135deg, transparent 44%, rgba(255, 255, 255, 0.07) 45% 52%, transparent 53%),
-    radial-gradient(circle at 0 70%, rgba(255, 94, 3, 0.35), transparent 42%);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  pointer-events: none;
+  background-image: url('/method-background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .method-grid {
@@ -1859,6 +1976,57 @@
     border-top: 1px solid var(--line);
     border-left: 0;
   }
+
+  .launch-offer-stage {
+    aspect-ratio: auto;
+    min-height: 0;
+    padding: 28px;
+    border: 1px solid rgba(255, 94, 3, 0.58);
+    border-radius: 22px;
+    background-size: cover;
+    background-position: center top;
+  }
+
+  .launch-offer {
+    position: static;
+  }
+
+  .launch-offer-heading {
+    grid-template-columns: 72px 1fr;
+    gap: 22px;
+    height: auto;
+    padding: 28px 20px 44px;
+  }
+
+  .launch-offer-heading > strong {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .launch-offer-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    height: auto;
+    padding: 0;
+  }
+
+  .launch-offer-grid button {
+    min-height: 210px;
+    padding: 34px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(6, 6, 6, 0.72);
+  }
+
+  .launch-offer-grid .launch-offer-featured {
+    border-color: rgba(255, 94, 3, 0.8);
+    box-shadow: 0 0 22px rgba(255, 94, 3, 0.12);
+  }
+
+  .project-note {
+    position: static;
+    justify-content: center;
+    margin-top: 28px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -2020,34 +2188,47 @@
     min-height: 780px;
   }
 
-  .launch-offer {
+  .launch-offer-stage {
     margin-top: 42px;
+    padding: 18px;
+    border-radius: 18px;
   }
 
   .launch-offer-heading {
-    grid-template-columns: auto 1fr;
-    gap: 14px;
-    padding: 20px;
+    grid-template-columns: 58px 1fr;
+    gap: 16px;
+    padding: 22px 8px 34px;
   }
 
-  .launch-offer-heading > strong {
-    grid-column: 1 / -1;
-    justify-self: start;
+  .launch-offer-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 13px;
   }
 
-  .launch-offer-grid {
-    grid-template-columns: 1fr;
+  .launch-offer-heading h3 {
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
   }
 
   .launch-offer-grid button {
-    min-height: 78px;
-    padding: 16px 20px;
-    border-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: 190px;
+    padding: 26px 22px;
   }
 
-  .launch-offer-grid button:last-child {
-    border-bottom: 0;
+  .launch-card-title strong {
+    font-size: 14px;
+  }
+
+  .launch-price {
+    gap: 16px;
+  }
+
+  .launch-price strong {
+    font-size: clamp(2rem, 10vw, 2.7rem);
+  }
+
+  .launch-featured-label {
+    padding: 9px 16px;
   }
 
   .offer-card [data-slot="card-footer"] {

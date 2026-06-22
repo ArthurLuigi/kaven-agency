@@ -31,6 +31,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
+import { contactConfig } from "@/lib/contact"
 
 function InstagramGlyph() {
   return (
@@ -73,7 +74,7 @@ async function copyToClipboard(text: string) {
 
 export function LeadForm({ selectedOffer }: LeadFormProps) {
   const [messageReady, setMessageReady] = useState(false)
-  const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER
+  const whatsappNumber = contactConfig.whatsappNumber
 
   const {
     control,
@@ -292,9 +293,9 @@ export function LeadForm({ selectedOffer }: LeadFormProps) {
 }
 
 export function SiteFooter() {
-  const instagramUrl = import.meta.env.VITE_INSTAGRAM_URL
-  const email = import.meta.env.VITE_CONTACT_EMAIL
-  const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER?.replace(/\D/g, "")
+  const instagramUrl = contactConfig.instagramUrl
+  const email = contactConfig.email
+  const whatsappNumber = contactConfig.whatsappNumber.replace(/\D/g, "")
 
   return (
     <footer className="site-footer">
@@ -312,18 +313,20 @@ export function SiteFooter() {
           </nav>
 
           <div className="footer-contact">
-            <a href={instagramUrl || "#contato"} aria-label="Instagram">
+            <a href={instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram">
               <InstagramGlyph />
               <span>Instagram</span>
             </a>
             <a
-              href={whatsappNumber ? `https://wa.me/${whatsappNumber}` : "#contato"}
+              href={`https://wa.me/${whatsappNumber}`}
+              target="_blank"
+              rel="noreferrer"
               aria-label="WhatsApp"
             >
               <img className="whatsapp-icon" src="/icons/whatsapp.svg" alt="" aria-hidden="true" />
               <span>WhatsApp</span>
             </a>
-            <a href={email ? `mailto:${email}` : "#contato"} aria-label="E-mail">
+            <a href={`mailto:${email}`} aria-label="E-mail">
               <MailIcon />
               <span>E-mail</span>
             </a>
