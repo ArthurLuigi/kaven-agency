@@ -30,12 +30,12 @@ export function solutionForOffer(offerTitle?: string) {
   if (
     offerTitle.includes("START") ||
     offerTitle.includes("GROWTH") ||
-    offerTitle.includes("DOMINANCE")
+    offerTitle.includes("SCALE")
   ) {
     return "recurring"
   }
   if (offerTitle.includes("BRAND")) return "branding"
-  if (offerTitle.includes("EMPIRE")) return "website"
+  if (offerTitle.includes("BUSINESS")) return "website"
   return "landing-page"
 }
 

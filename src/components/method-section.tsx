@@ -28,10 +28,12 @@ const steps = [
 ]
 
 const differentiators = [
-  { label: "Foco em conversão", icon: "/icons/mira-laranja.svg" },
-  { label: "Entrega rápida", icon: "/icons/raio-laranja.svg" },
-  { label: "Atendimento humanizado", icon: "/icons/pessoa-laranja.svg" },
+  { label: "Estratégias orientadas por dados", icon: "/icons/crescimento-laranja.svg" },
+  { label: "Atendimento consultivo", icon: "/icons/pessoa-laranja.svg" },
+  { label: "Estruturas personalizadas", icon: "/icons/raio-laranja.svg" },
+  { label: "Foco em crescimento sustentável", icon: "/icons/mira-laranja.svg" },
   { label: "Transparência nos resultados", icon: "/icons/crescimento-laranja.svg" },
+  { label: "Visão estratégica de marca e performance", icon: "/icons/mira-laranja.svg" },
 ]
 
 export function MethodSection() {
